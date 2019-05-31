@@ -13,19 +13,44 @@
     <link rel="stylesheet" href="css/home-styles.css" />
   </head>
   <body>
-    <!-- NAV -->
-    <div id="side-nav"></div>
+    <!-- NAV AND HEADER -->
+    <div class="row">
+      <div class="col">
+        <div id="side-nav"></div>
+      </div>
+      <div class="col header">
+          Get Cooking
+      </div>
+      <div class="col">
+        <a href="#"><img src="img/pantry.png" id="pantry"/></a>
+      </div>
+    </div>
     <!-- CONTENT -->
     <div class="container-fluid">
       <div class="row" id="main">
-          <div class="col-sm">
-              card1
+          <div class="col-sm" align="center">
+            <a href="#" class="card" style="width: 20rem;">
+              <img class="card-img-top" src="img/cookbook.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Browse Recipes</p>
+              </div>
+            </a>
           </div>
-          <div class="col-sm">
-            card2
+          <div class="col-sm" align="center">
+            <a href="#" class="card" style="width: 20rem;">
+              <img class="card-img-top" src="img/mealprep.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Generate Meal Plan</p>
+              </div>
+            </a>
           </div>
-          <div class="col-sm">
-            card3
+          <div class="col-sm" align="center">
+            <a href="#" class="card" style="width: 20rem;">
+              <img class="card-img-top" src="img/spices.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Explore Flavors</p>
+              </div>
+            </a>
           </div>
       </div>
     </div>

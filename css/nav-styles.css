@@ -2,6 +2,13 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.header {
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 80px;
+  color: #FF9F1C;
+  text-align: center;
+}
+
 .w3-sidebar {
   display: none;
 }
@@ -36,4 +43,11 @@ body {
   background-color: #2EC4B6;
   opacity: 0.5;
   color: black;
+}
+
+#pantry {
+  height: 48px;
+  width: 48px;
+  float: right;
+  padding: 4px;
 }

@@ -1,5 +1,25 @@
-.header {
-  font-family: 'Amatic SC', sans-serif;
-  font-size: 96px;
-  color: #FF9F1C;
+body {
+  background-color: #F5F6F4;
+}
+
+.container-fluid {
+  padding-top: 60px;
+}
+
+.card {
+  background: #2EC4B6;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+
+.card-text {
+  color: white;
+  font-size: 24px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+  opacity: 0.7;
 }
