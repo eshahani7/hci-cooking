@@ -1,0 +1,39 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.w3-sidebar {
+  display: none;
+}
+
+.profile-item {
+  vertical-align: center;
+  padding-bottom: 16px;
+  padding-top: 8px;
+}
+
+.prof-span {
+  padding-bottom: 0px;
+}
+
+.close-nav {
+  padding-top: 16px;
+  padding-left: 8px;
+  vertical-align: center;
+  text-align: center;
+}
+
+.log-out {
+  vertical-align: bottom;
+  background-color: #E71D36;
+  color: white;
+  /* position:fixed; */
+  position: absolute;
+  bottom:0px;
+}
+
+.nav-item:hover {
+  background-color: #2EC4B6;
+  opacity: 0.5;
+  color: black;
+}
