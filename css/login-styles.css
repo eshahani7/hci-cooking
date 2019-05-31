@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  background-image: url("/img/table-bg.jpg");
+  background-image: url("../img/table-bg.jpg");
   background-size: cover;
   background-repeat:no-repeat;
   margin: 0;
