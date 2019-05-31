@@ -42,6 +42,30 @@ body {
   -webkit-transform: rotateY(180deg);
 }
 
+.signup-success {
+  visibility: hidden;
+  opacity: 0;
+  background: #FF9F1C;
+  border-radius: 10px;
+  height: 30px;
+  width: 298px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 3px;
+  color: white;
+}
+
+.signup-success.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear;
+}
+
 .login-container {
   height: 380px;
   width: 298px;
