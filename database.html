@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Database</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <p>Getting started with Firebase</p>
+    <h1 id="bigOne"></h1>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
+    <script src="./js/db.js"></script>
+
+
+    <script>
+      var db = firebase.firestore();
+      db.collection("recipes").get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          var ing = doc.data().ingredients
+          for(var key in ing) {
+            console.log(key);
+            console.log(ing[key])
+          }
+        });
+      })
+      .catch(function(error) {
+        console.log("Error getting documents: ", error);
+      });
+    </script>
+  </body>
+</html>

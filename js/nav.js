@@ -1,5 +1,5 @@
 $(function(){
-  $("#side-nav").load("nav.html");
+  $("#side-nav").load("./nav.html");
 });
 
 function open_nav() {
