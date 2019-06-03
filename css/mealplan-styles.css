@@ -19,6 +19,18 @@ h6 {
   font-size: 22px;
 }
 
+.btn {
+  background: #011627;
+  color: #FFFFFF;
+  border-radius: 30px;
+  height: 50px;
+  border: 2px solid #FF9F1C;
+}
+
+.btn:hover {
+  color: #FF9F1C;
+}
+
 .card-header {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
@@ -31,13 +43,35 @@ h6 {
 }
 
 .number-card {
-  background: #011627;
+  background: #2EC4B6;
   border: none;
   height: 200px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
 
-.card-body {
+.num-body {
   margin-top: 12%;
+}
+
+.meal-card {
+  background: #2EC4B6;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+
+.card-text {
+  color: white;
+  font-size: 24px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.hidden {
+  display: none;
 }

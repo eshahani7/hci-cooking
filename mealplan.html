@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="css/mealplan-styles.css" />
     <link rel="stylesheet" href="css/nav-styles.css" />
   </head>
-  <body>
+  <body onload="checkMealGen()">
     <!-- NAV AND HEADER -->
     <div class="row">
       <div class="col">
         <div id="side-nav"></div>
       </div>
       <div class="col header">
-          Build a meal plan
+          <div id="title"></div>
       </div>
       <div class="col">
         <svg id="home" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
@@ -28,35 +28,72 @@
     </div>
     <!-- CONTENT -->
     <div class="container">
-      <div class="row mt-4">
-        <div class="col-sm">
-          <h2>LET'S GET STARTED...</h2>
-          <h6>How many recipes would you like to make this week?</h6>
-        </div>
-      </div>
-      <div class="row mt-5">
-        <div class="col-sm">
-          <div class="card number-card mb-2" style="max-width: 18rem;">
-            <div class="card-header">BREAKFAST</div>
-            <div class="card-body pl-5 pr-5">
-              <input type="number" class="form-control" placeholder="3">
+      <div id="main">
+        <div id="generation" class="hidden">
+          <div class="row mt-4">
+            <div class="col-sm">
+              <h2>LET'S GET STARTED...</h2>
+              <h6>How many recipes would you like to make this week?</h6>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-sm" align="center">
+              <div class="card number-card mb-2" style="max-width: 18rem;">
+                <div class="card-header">BREAKFAST</div>
+                <div class="card-body num-body pl-5 pr-5">
+                  <input id="bfast-num" type="number" min="1" max="7" class="form-control" placeholder="3">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm" align="center">
+              <div class="card number-card mb-2" style="max-width: 18rem;">
+                <div class="card-header">LUNCH</div>
+                <div class="card-body num-body pl-5 pr-5">
+                  <input id="lunch-num" type="number" min="1" max="7" class="form-control" placeholder="3">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm" align="center">
+              <div class="card number-card mb-2" style="max-width: 18rem;">
+                <div class="card-header">DINNER</div>
+                <div class="card-body num-body pl-5 pr-5">
+                  <input id="dinner-num" type="number" min="1" max="7" class="form-control" placeholder="3">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm mt-5 pt-5 " align="center">
+              <button type="button" class="btn" style="width: 18rem;" onclick="populateMealPlan()">GO >></button>
             </div>
           </div>
         </div>
-        <div class="col-sm">
-          <div class="card number-card mb-2" style="max-width: 18rem;">
-            <div class="card-header">LUNCH</div>
-            <div class="card-body pl-5 pr-5">
-              <input type="number" class="form-control" placeholder="3">
-            </div>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div class="card number-card mb-2" style="max-width: 18rem;">
-            <div class="card-header">DINNER</div>
-            <div class="card-body pl-5 pr-5">
-              <input type="number" class="form-control" placeholder="3">
-            </div>
+        <div id="plan" class="hidden">
+          <div class="row" id="main">
+              <div class="col-sm" align="center">
+                <a href="#" class="card meal-card" style="width: 18rem;">
+                  <img class="card-img-top" src="img/cookbook.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text">Browse Recipes</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-sm" align="center">
+                <a href="#" class="card meal-card" style="width: 18rem;">
+                  <img class="card-img-top" src="img/mealprep.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text">Generate Meal Plan</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-sm" align="center">
+                <a href="#" class="card meal-card" style="width: 18rem;">
+                  <img class="card-img-top" src="img/spices.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text">Explore Flavors</p>
+                  </div>
+                </a>
+              </div>
           </div>
         </div>
       </div>
@@ -72,5 +109,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="./js/nav.js"></script>
+    <script src="./js/mealplan.js"></script>
   </body>
 </html>

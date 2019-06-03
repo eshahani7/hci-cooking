@@ -1,3 +1,4 @@
+<!-- THIS IS A TESTING FILE -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,6 +17,8 @@
 
     <script>
       var db = firebase.firestore();
+
+      // get recommended items from all recipes
       db.collection("recipes").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
           var ing = doc.data().ingredients
@@ -28,6 +31,20 @@
       .catch(function(error) {
         console.log("Error getting documents: ", error);
       });
-    </script>
+
+      var mealGenerated = db.collection("users").get();
+      console.log(mealGenerated);
+
+      // get whether meal plan generated
+      // db.collection("users").get().then(funciton(querySnapshot) {
+      //   querySnapshot
+      // })
+      // .catch(function(error) {
+      //   console.log("Error getting documents: ", error);
+      // });
+
+      // access # of recipes
+
+      </script>
   </body>
 </html>
