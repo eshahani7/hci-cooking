@@ -20,12 +20,14 @@ function checkMealGen() {
 
 function populateMealPlan() {
   var bfastNum = document.getElementById("bfast-num").value;
+  console.log(bfastNum);
   bfastNum == "" ? bfastNum = 3 : bfastNum = bfastNum;
 
   // get bfastNum of breakfast meals from breakfast collection
   db.collection("breakfast").get().then(function (querySnapshot) {
     var bfast = shuffle(querySnapshot.docs).slice(0, bfastNum);
     var bfastData = [];
+    console.log(bfastData);
     for(var i = 0; i < bfast.length; i++) {
       bfastData[i] = bfast[i].data();
     }
@@ -34,8 +36,8 @@ function populateMealPlan() {
     })
   });
 
-  var lunchNum = document.getElementById("lunch-num").value;
-  lunchNum == "" ? lunchNum = 3 : lunchNum = lunchNum;
+  // var lunchNum = document.getElementById("lunch-num").value;
+  // lunchNum == "" ? lunchNum = 3 : lunchNum = lunchNum;
   // db.collection("lunch").get().then(function (querySnapshot) {
   //   var lunch = shuffle(querySnapshot.docs).slice(0, bfastNum);
   //   var lunch = [];
@@ -111,6 +113,10 @@ $(".ct").on("click", function(){
    }
 
    if(this.innerText == "BREAKFAST") {
+     db.collection("users").doc("eshahani").get().then(function (entry) {
+       var lunchList = entry.data().mealPlan.breakfast;
+       generateCards(lunchList);
+     });
   } else if(this.innerText == "LUNCH") {
     db.collection("users").doc("eshahani").get().then(function (entry) {
       var lunchList = entry.data().mealPlan.lunch;
