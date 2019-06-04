@@ -7,9 +7,9 @@ function checkMealGen() {
         console.log(doc.data().mealGenerated);
         if(doc.data().mealGenerated) {
           // show plan and populate cards
-          document.getElementById("title").innerText = "Your Meal Plan";
-          document.getElementById("plan").classList.toggle("hidden");
-
+          // document.getElementById("title").innerText = "Your Meal Plan";
+          // document.getElementById("plan").classList.toggle("hidden");
+          loadMealPlan();
         } else {
           document.getElementById("title").innerText = "Build a meal plan";
           document.getElementById("generation").classList.toggle("hidden");
@@ -60,9 +60,9 @@ function populateMealPlan() {
   //   })
   // });
 
-  db.collection("users").doc("eshahani").update({
-    mealGenerated: true
-  });
+  // db.collection("users").doc("eshahani").update({
+  //   mealGenerated: true
+  // });
 
   loadMealPlan();
 }
@@ -70,8 +70,60 @@ function populateMealPlan() {
 function loadMealPlan() {
   document.getElementById("title").innerText = "Your Meal Plan";
   document.getElementById("plan").classList.toggle("hidden");
-  document.getElementById("generation").classList.toggle("hidden");
+  var genClasses = document.getElementById("generation").classList;
+  if(!genClasses.contains("hidden")) {
+    document.getElementById("generation").classList.toggle("hidden");
+  }
+
+  // retrieve info from db
+  db.collection("users").doc("eshahani").get().then(function (entry) {
+    var bfastList = entry.data().mealPlan.breakfast;
+    generateCards(bfastList);
+  });
 }
+
+function generateCards(list) {
+  for(var i = 0; i < list.length; i++) {
+    var docPath = list[i].src.path;
+    var pathArr = docPath.split("/");
+    console.log(docPath);
+    db.collection(pathArr[0]).doc(pathArr[1]).get().then(function(recipe) {
+      var card = document.getElementById("recipe-card");
+      var cardClone = card.cloneNode(true);
+      cardClone.removeAttribute("id");
+      cardClone.classList.toggle("hidden");
+
+      // TODO: change links to recipes
+      cardClone.querySelector(".card-text").innerText = recipe.data().name;
+      cardClone.querySelector(".card-img-top").src = recipe.data().imgPath;
+      document.getElementById("card-row").appendChild(cardClone);
+      console.log("appending");
+    });
+  }
+}
+
+$(".ct").on("click", function(){
+   $(".meal-tabs").find(".active").removeClass("active");
+   $(this).addClass("active");
+   var row = document.getElementById("card-row");
+   while (row.firstChild) {
+     row.removeChild(row.firstChild);
+   }
+
+   if(this.innerText == "BREAKFAST") {
+  } else if(this.innerText == "LUNCH") {
+    db.collection("users").doc("eshahani").get().then(function (entry) {
+      var lunchList = entry.data().mealPlan.lunch;
+      generateCards(lunchList);
+    });
+  } else if(this.innerText == "DINNER") {
+    db.collection("users").doc("eshahani").get().then(function (entry) {
+      var lunchList = entry.data().mealPlan.dinner;
+      generateCards(dinnerList);
+    });
+  }
+   return false;
+});
 
 // TODO: finish this ugh
 function generateGroceryList() {

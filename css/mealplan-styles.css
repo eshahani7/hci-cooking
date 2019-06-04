@@ -20,11 +20,10 @@ h6 {
 }
 
 .btn {
-  background: #011627;
-  color: #FFFFFF;
+  color: black;
   border-radius: 30px;
   height: 50px;
-  border: 2px solid #FF9F1C;
+  border: 2px solid #2EC4B6;
 }
 
 .btn:hover {
@@ -74,4 +73,32 @@ a:hover {
 
 .hidden {
   display: none;
+}
+
+.meal-tabs {
+  color: gray;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 22px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.ct {
+  color: gray;
+  padding-right: 5px;
+}
+
+.ct.active {
+  color:black;
+}
+
+.ct:hover {
+  color: black;
+}
+
+#main {
+  overflow: scroll;
 }

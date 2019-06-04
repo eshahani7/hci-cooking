@@ -69,34 +69,26 @@
           </div>
         </div>
         <div id="plan" class="hidden">
-          <div class="row" id="main">
-              <div class="col-sm" align="center">
-                <a href="#" class="card meal-card" style="width: 18rem;">
-                  <img class="card-img-top" src="img/cookbook.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <p class="card-text">Browse Recipes</p>
-                  </div>
-                </a>
-              </div>
-              <div class="col-sm" align="center">
-                <a href="#" class="card meal-card" style="width: 18rem;">
-                  <img class="card-img-top" src="img/mealprep.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <p class="card-text">Generate Meal Plan</p>
-                  </div>
-                </a>
-              </div>
-              <div class="col-sm" align="center">
-                <a href="#" class="card meal-card" style="width: 18rem;">
-                  <img class="card-img-top" src="img/spices.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <p class="card-text">Explore Flavors</p>
-                  </div>
-                </a>
-              </div>
+          <div class="row">
+            <div class="col meal-tabs">
+              <a href="#" class="ct active">BREAKFAST</a>&nbsp&nbsp/&nbsp&nbsp<a href="" class="ct">LUNCH</a>&nbsp&nbsp/&nbsp&nbsp<a href="#" class="ct">DINNER</a>
+            </div>
+          </div>
+          <div class="row flex-row flex-nowrap" id="card-row">
+            <!-- dynamically inserted recipe cards here -->
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- recipe card element -->
+    <div class="col-sm hidden" id="recipe-card" align="center">
+      <a href="#" class="card meal-card" style="width: 20rem;">
+        <img class="card-img-top" src="img/cookbook.jpg">
+        <div class="card-body">
+          <p class="card-text">Browse Recipes</p>
+        </div>
+      </a>
     </div>
 
     <!-- SCRIPTS -->
