@@ -157,7 +157,7 @@ function replaceCard(card, docPath, meal) {
 
 function refreshCard(elem) {
   // get actual card
-  var node = elem.parentNode.parentNode;
+  var node = elem.parentNode.parentNode.parentNode;
   var meal = document.getElementsByClassName("active")[0].innerText.toLowerCase();
 
   // check inner text of active item to query appropriate collection
