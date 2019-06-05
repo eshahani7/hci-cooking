@@ -7,8 +7,6 @@ function checkMealGen() {
         console.log(doc.data().mealGenerated);
         if(doc.data().mealGenerated) {
           // show plan and populate cards
-          // document.getElementById("title").innerText = "Your Meal Plan";
-          // document.getElementById("plan").classList.toggle("hidden");
           loadMealPlan();
         } else {
           document.getElementById("title").innerText = "Build a meal plan";
@@ -27,51 +25,50 @@ function populateMealPlan() {
   db.collection("breakfast").get().then(function (querySnapshot) {
     var bfast = shuffle(querySnapshot.docs).slice(0, bfastNum);
     var bfastData = [];
-    console.log(bfastData);
     for(var i = 0; i < bfast.length; i++) {
       bfastData[i] = bfast[i].data();
     }
     db.collection("users").doc("eshahani").update({
       "mealPlan.breakfast" : bfastData
     })
+    loadMealPlan();
   });
 
-  // var lunchNum = document.getElementById("lunch-num").value;
-  // lunchNum == "" ? lunchNum = 3 : lunchNum = lunchNum;
-  // db.collection("lunch").get().then(function (querySnapshot) {
-  //   var lunch = shuffle(querySnapshot.docs).slice(0, bfastNum);
-  //   var lunch = [];
-  //   for(var i = 0; i < bfast.length; i++) {
-  //     lunchData[i] = lunch[i].data();
-  //   }
-  //   db.collection("users").doc("eshahani").update({
-  //     "mealPlan.lunch" : bfastData
-  //   })
-  // });
+  var lunchNum = document.getElementById("lunch-num").value;
+  lunchNum == "" ? lunchNum = 3 : lunchNum = lunchNum;
+  db.collection("lunch").get().then(function (querySnapshot) {
+    var lunch = shuffle(querySnapshot.docs).slice(0, lunchNum);
+    var lunchData = [];
+    for(var i = 0; i < lunch.length; i++) {
+      lunchData[i] = lunch[i].data();
+    }
+    db.collection("users").doc("eshahani").update({
+      "mealPlan.lunch" : lunchData
+    })
+  });
 
   var dinnerNum = document.getElementById("dinner-num").value;
   dinnerNum == "" ? dinnerNum = 3 : dinnerNum = dinnerNum;
-  // db.collection("dinner").get().then(function (querySnapshot) {
-  //   var dinner = shuffle(querySnapshot.docs).slice(0, bfastNum);
-  //   var dinnerData = [];
-  //   for(var i = 0; i < bfast.length; i++) {
-  //     dinnerData[i] = dinner[i].data();
-  //   }
-  //   db.collection("users").doc("eshahani").update({
-  //     "mealPlan.dinner" : bfastData
-  //   })
-  // });
+  db.collection("dinner").get().then(function (querySnapshot) {
+    var dinner = shuffle(querySnapshot.docs).slice(0, bfastNum);
+    var dinnerData = [];
+    for(var i = 0; i < bfast.length; i++) {
+      dinnerData[i] = dinner[i].data();
+    }
+    db.collection("users").doc("eshahani").update({
+      "mealPlan.dinner" : bfastData
+    })
+  });
 
-  // db.collection("users").doc("eshahani").update({
-  //   mealGenerated: true
-  // });
-
-  loadMealPlan();
+  db.collection("users").doc("eshahani").update({
+    mealGenerated: true
+  });
 }
 
 function loadMealPlan() {
   document.getElementById("title").innerText = "Your Meal Plan";
   document.getElementById("plan").classList.toggle("hidden");
+  document.getElementById("tabs").classList.toggle("hidden");
   var genClasses = document.getElementById("generation").classList;
   if(!genClasses.contains("hidden")) {
     document.getElementById("generation").classList.toggle("hidden");
@@ -102,6 +99,84 @@ function generateCards(list) {
       console.log("appending");
     });
   }
+}
+
+function replaceCard(card, docPath, meal) {
+  var pathArr = docPath.split("/");
+  db.collection(pathArr[0]).doc(pathArr[1]).get().then(function(recipe) {
+
+    // TODO: change links to recipes
+    var oldName = card.querySelector(".card-text").innerText;
+    card.querySelector(".card-text").innerText = recipe.data().name;
+    card.querySelector(".card-img-top").src = recipe.data().imgPath;
+
+    var name = "mealPlan.breakfast";
+
+    if(meal == "breakfast") {
+      var query = db.collection("breakfast").where("name", "==", oldName);
+      query.get().then(function (querySnapshot) {
+        db.collection("users").doc("eshahani").update({
+          "mealPlan.breakfast" : firebase.firestore.FieldValue.arrayRemove(querySnapshot.docs[0].data())
+        });
+      });
+      var query = db.collection("breakfast").where("name", "==", recipe.data().name);
+      query.get().then(function (querySnapshot) {
+        db.collection("users").doc("eshahani").update({
+          "mealPlan.breakfast" : firebase.firestore.FieldValue.arrayUnion(querySnapshot.docs[0].data())
+        });
+      });
+    } else if(meal == "lunch") {
+      var query = db.collection("lunch").where("name", "==", oldName);
+      query.get().then(function (querySnapshot) {
+        db.collection("users").doc("eshahani").update({
+          "mealPlan.lunch" : firebase.firestore.FieldValue.arrayRemove(querySnapshot.docs[0].data())
+        });
+      });
+      var query = db.collection("lunch").where("name", "==", recipe.data().name);
+      query.get().then(function (querySnapshot) {
+        db.collection("users").doc("eshahani").update({
+          "mealPlan.lunch" : firebase.firestore.FieldValue.arrayUnion(querySnapshot.docs[0].data())
+        });
+      });
+    } else {
+      var query = db.collection("dinner").where("name", "==", oldName);
+      query.get().then(function (querySnapshot) {
+        db.collection("users").doc("eshahani").update({
+          "mealPlan.dinner" : firebase.firestore.FieldValue.arrayRemove(querySnapshot.docs[0].data())
+        });
+      });
+      var query = db.collection("dinner").where("name", "==", recipe.data().name);
+      query.get().then(function (querySnapshot) {
+        db.collection("users").doc("eshahani").update({
+          "mealPlan.dinner" : firebase.firestore.FieldValue.arrayUnion(querySnapshot.docs[0].data())
+        });
+      });
+    }
+  });
+}
+
+function refreshCard(elem) {
+  // get actual card
+  var node = elem.parentNode.parentNode.parentNode;
+  var meal = document.getElementsByClassName("active")[0].innerText.toLowerCase();
+
+  // check inner text of active item to query appropriate collection
+  db.collection(meal).get().then(function (querySnapshot) {
+    var allMeals = querySnapshot.docs;
+    var allMealData = allMeals.map(value => value.data().src.path);
+    db.collection("users").doc("eshahani").get().then(function (entry) {
+      var mealPlan = entry.data().mealPlan.breakfast;
+      if(meal == "lunch") {
+        mealPlan = entry.data().mealPlan.lunch;
+      } else if(meal == "dinner") {
+        mealPlan = entry.data().mealPlan.dinner;
+      }
+      mealPlan = mealPlan.map(value => value.src.path);
+      var subset = allMealData.filter(value => !mealPlan.includes(value));
+      var path = shuffle(subset)[0];
+      replaceCard(node, path, meal);
+    });
+  });
 }
 
 $(".ct").on("click", function(){
