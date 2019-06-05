@@ -31,7 +31,9 @@ function populateMealPlan() {
     db.collection("users").doc("eshahani").update({
       "mealPlan.breakfast" : bfastData
     })
+    generateGroceryList(bfastData);
     loadMealPlan();
+    // grocery List
   });
 
   var lunchNum = document.getElementById("lunch-num").value;
@@ -45,6 +47,7 @@ function populateMealPlan() {
     db.collection("users").doc("eshahani").update({
       "mealPlan.lunch" : lunchData
     })
+    generateGroceryList(lunchData);
   });
 
   var dinnerNum = document.getElementById("dinner-num").value;
@@ -52,17 +55,18 @@ function populateMealPlan() {
   db.collection("dinner").get().then(function (querySnapshot) {
     var dinner = shuffle(querySnapshot.docs).slice(0, bfastNum);
     var dinnerData = [];
-    for(var i = 0; i < bfast.length; i++) {
+    for(var i = 0; i < dinner.length; i++) {
       dinnerData[i] = dinner[i].data();
     }
     db.collection("users").doc("eshahani").update({
-      "mealPlan.dinner" : bfastData
+      "mealPlan.dinner" : dinnerData
     })
+    generateGroceryList(dinnerData);
   });
 
-  db.collection("users").doc("eshahani").update({
-    mealGenerated: true
-  });
+  // db.collection("users").doc("eshahani").update({
+  //   mealGenerated: true
+  // });
 }
 
 function loadMealPlan() {
@@ -207,8 +211,27 @@ $(".ct").on("click", function(){
 });
 
 // TODO: finish this ugh
-function generateGroceryList() {
-
+function generateGroceryList(list) {
+  var result = {};
+  list.forEach(function(listItem) {
+    var docPath = listItem.src.path;
+    var pathArr = docPath.split("/");
+    console.log("outer");
+    db.collection(pathArr[0]).doc(pathArr[1]).get().then(function(recipe) {
+      var keys = Object.keys(recipe.data().ingredients);
+      var values = Object.values(recipe.data().ingredients);
+      values.forEach(function(val, i) {
+        var ingPath = val.path.split("/");
+        db.collection(ingPath[0]).doc(ingPath[1]).get().then(function(ing) {
+          values[i] = ing.data().type;
+          keys.forEach((key, i) => result[key] = values[i]);
+          db.collection("users").doc("eshahani").update({
+            "groceryList" : result
+          })
+        });
+      })
+    });
+  })
 }
 
 // source: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
