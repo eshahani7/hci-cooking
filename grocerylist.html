@@ -11,8 +11,9 @@
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="css/nav-styles.css" />
+    <link rel="stylesheet" href="css/glist-styles.css" />
   </head>
-  <body>
+  <body onload="loadItems()">
     <!-- NAV AND HEADER -->
     <div class="row">
       <div class="col">
@@ -28,26 +29,75 @@
 
     <!-- CONTENT -->
     <div class="container" id="main">
-      <div class="row">
-        <div class="col-6">Fruits</div>
-        <div class="col-6">Protein</div>
-        <div class="col-6">Vegetables</div>
-        <div class="col-6">Grains</div>
-        <div class="col-6">Dairy</div>
-        <div class="col-6">Spices</div>
-        <div class="col-6">Sweeteners</div>
-        <div class="col-6">Condiments</div>
-        <div class="col-6"></div>
-        <div class="col-6">Other</div>
-
-
-        <!-- Force next columns to break to new line -->
-        <!-- <div class="w-100"></div>
-
-        <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
-        <div class="col-6 col-sm-3">.col-6 .col-sm-3</div> -->
+      <div class="row pt-3 pb-3 mb-3" id="list-container">
+        <div class="col">
+          <ul>
+            <h4>Fruits</h4>
+            <div id="Fruits"></div>
+            <li class="pb-1 list-group-item addNewContext flush" id="Fruits-add">
+              <img src="img/add-item-btn.png" class="add" id="add"/>
+            </li>
+            <h4>Vegetables</h4>
+            <div id="Vegetables"></div>
+            <li class="pb-1 list-group-item addNewContext flush" id="Vegetables-add">
+              <img src="img/add-item-btn.png" class="add" id="add"/>
+            </li>
+            <h4>Grains</h4>
+            <div id="Grains"></div>
+            <li class="pb-1 list-group-item addNewContext flush" id="Grains-add">
+              <img src="img/add-item-btn.png" class="add" id="add"/>
+            </li>
+            <h4>Protein</h4>
+            <div id="Protein"></div>
+            <li class="pb-1 list-group-item addNewContext flush" id="Protein-add">
+              <img src="img/add-item-btn.png" class="add" id="add"/>
+            </li>
+            <h4>Dairy</h4>
+            <div id="Dairy"></div>
+            <li class="pb-1 list-group-item addNewContext flush" id="Dairy-add">
+              <img src="img/add-item-btn.png" class="add" id="add"/>
+            </li>
+            <h4>Condiments</h4>
+            <div id="Condiments"></div>
+            <li class="pb-1 list-group-item addNewContext flush" id="Condiments-add">
+              <img src="img/add-item-btn.png" class="add" id="add"/>
+            </li>
+            <h4>Spices</h4>
+            <div id="Spices"></div>
+            <li class="pb-1 list-group-item addNewContext flush" id="Spicesadd">
+              <img src="img/add-item-btn.png" class="add" id="add"/>
+            </li>
+            <h4>Sweeteners</h4>
+            <div id="Sweeteners"></div>
+            <li class="pb-1 list-group-item addNewContext flush" id="Sweeteners-add">
+              <img src="img/add-item-btn.png" class="add" id="add"/>
+            </li>
+            <h4>Supplements</h4>
+            <div id="Supplements"></div>
+            <li class="pb-1 list-group-item addNewContext flush" id="Supplements-add">
+              <img src="img/add-item-btn.png" class="add" id="add"/>
+            </li>
+            <h4>Other</h4>
+            <div id="Other"></div>
+            <li class="pb-1 list-group-item addNewContext flush" id="Other-add">
+              <img src="img/add-item-btn.png" class="add" id="add"/>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
+
+
+    <!-- custom checkbox adapted from: https://codepen.io/AllThingsSmitty/pen/WjZVjo -->
+    <li class="list-group-item hidden pb-1" id="item">
+      <div class="form-check form-check-inline">
+        <div class="round mr-3">
+          <input type="checkbox" class="check" id="checkbox" />
+          <label for="checkbox" class="check-label"></label>
+        </div>
+        <label class="item-label"></label>
+      </div>
+    </li>
 
     <!-- SCRIPTS -->
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
@@ -59,5 +109,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="./js/nav.js"></script>
+    <script src="./js/glist.js"></script>
   </body>
 </html>

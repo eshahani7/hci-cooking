@@ -100,7 +100,6 @@ function generateCards(list) {
       cardClone.querySelector(".card-text").innerText = recipe.data().name;
       cardClone.querySelector(".card-img-top").src = recipe.data().imgPath;
       document.getElementById("card-row").appendChild(cardClone);
-      console.log("appending");
     });
   }
 }
