@@ -30,6 +30,8 @@ $('.addNewContext').click(function() {
   }
 });
 
+// TODO: @Christina you'll update the pantry with the item info here
+// key = item, value = heading
 function onCheckChange(elem) {
   var key = elem.parentNode.parentNode.querySelector(".item-label").innerText;
   var value = elem.parentNode.parentNode.parentNode.parentNode.id;
