@@ -54,3 +54,7 @@
 .btn:focus {
     box-shadow: none;
 }
+
+.hidden {
+    display: none;
+}

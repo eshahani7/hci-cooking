@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="css/pantry-styles.css" />
     </head>
 
-    <body>
+    <body onload="loadItems()">
         <!-- NAV AND HEADER -->
         <div class="row">
             <div class="col">
@@ -25,11 +25,11 @@
                 Your Virtual Pantry
             </div>
             <div class="col">
-                <a href="#"><img src="img/pantry.png" id="pantry" /></a>
+                <svg id="home" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
             </div>
         </div>
         <!-- CONTENT -->
-        <div class="container">
+        <div class="container" id="main">
             <div class="row mb-2">
                 <input type="text" id="search-bar" placeholder="Search for item" onkeyup="search()">
             </div>
@@ -47,10 +47,19 @@
                             <button type="button" class="btn add-item-btn" id="add-item-btn"></button>
                         </div>
                     </div>
+                    <div class="row mb-2 mt-2" id="items-list">
+                        <div class="item hidden" id="fruits">
+                            <h4>Fruits</h4>
+
+                        </div>
+                    </div>
                 </div>
             </div>
             
         </div>
+        <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
+        <script src="./js/db.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
