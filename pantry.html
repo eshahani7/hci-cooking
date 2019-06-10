@@ -17,45 +17,152 @@
 
     <body onload="loadItems()">
         <!-- NAV AND HEADER -->
-        <div class="row">
-            <div class="col">
-                <div id="side-nav"></div>
-            </div>
-            <div class="col header">
-                Your Virtual Pantry
-            </div>
-            <div class="col">
-                <svg id="home" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-            </div>
-        </div>
-        <!-- CONTENT -->
-        <div class="container" id="main">
-            <div class="row mb-2">
-                <input type="text" id="search-bar" placeholder="Search for item" onkeyup="search()">
-            </div>
+        <div class="blur">
             <div class="row">
-                <div class="container-fluid" id="pantry-container">
-                    <div class="row mb-2 mt-2">
-                        <div class="col-4"></div>
-                        <div class="col-4" align="center">
-                            <div class="btn-group" id="view-options" role="group">
-                                <button type="button" class="btn view-options-btn active" id="list-view-btn" onclick="selectView(this)">List View</button>
-                                <button type="button" class="btn view-options-btn" id="detailed-view-btn" onclick="selectView(this)">Detailed View</button>
+                <div class="col">
+                    <div id="side-nav"></div>
+                </div>
+                <div class="col header">
+                    Your Virtual Pantry
+                </div>
+                <div class="col">
+                    <svg id="home" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M10 20v-6h3v6h5v-8h3L12 3 2 12h3v8z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                </div>
+            </div>
+            <!-- CONTENT -->
+            <div class="container" id="main">
+                <div class="row mb-2">
+                    <input type="text" id="search-bar" placeholder="Search for item" onkeyup="search()">
+                </div>
+                <div class="row">
+                    <div class="container-fluid mb-5" id="pantry-container">
+                        <div class="row mt-2">
+                            <div class="col-4"></div>
+                            <div class="col-4" align="center">
+                                <div class="btn-group" id="view-options" role="group">
+                                    <button type="button" class="btn view-options-btn active" id="list-view-btn" onclick="selectView(this)">List View</button>
+                                    <button type="button" class="btn view-options-btn" id="detailed-view-btn" onclick="selectView(this)">Detailed View</button>
+                                </div>
+                            </div>
+                            <div class="col-4" align="right">
+                                <button type="button" class="btn add-item-btn" id="add-item-btn" data-toggle="modal" data-target="#addItemModal" title="add item" onclick="blurBackground()"></button>
                             </div>
                         </div>
-                        <div class="col-4" align="right">
-                            <button type="button" class="btn add-item-btn" id="add-item-btn"></button>
-                        </div>
-                    </div>
-                    <div class="row mb-2 mt-2" id="items-list">
-                        <div class="item hidden" id="fruits">
-                            <h4>Fruits</h4>
-
+                        <div class="row" id="list-container">
+                            <div class="two-cols">
+                                <div class="list-group list-group-flush hidden" id="Fruits">
+                                    <h3>Fruits</h3>
+                                </div>
+                                <div class="list-group list-group-flush hidden" id="Vegetables">
+                                    <h3>Vegetables</h3>
+                                </div>
+                                <div class="list-group list-group-flush hidden" id="Grains">
+                                    <h3>Grains</h3>
+                                </div>
+                                <div class="list-group list-group-flush hidden" id="Protein">
+                                    <h3>Protein</h3>
+                                </div>
+                                <div class="list-group list-group-flush list-group-flush hidden" id="Dairy">
+                                    <h3>Dairy</h3>
+                                </div>
+                                <div class="list-group list-group-flush hidden" id="Condiments">
+                                    <h3>Condiments</h3>
+                                </div>
+                                <div class="list-group list-group-flush hidden" id="Spices">
+                                    <h3>Spices</h3>
+                                </div>
+                                <div class="list-group list-group-flush hidden" id="Sweeteners">
+                                    <h3>Sweeteners</h3>
+                                </div>
+                                <div class="list-group list-group-flush hidden" id="Supplements">
+                                    <h3>Supplements</h3>
+                                </div>
+                                <div class="list-group list-group-flush hidden" id="Other">
+                                    <h3>Other</h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </li>
             </div>
-            
+            <li class="list-group-item rounded-0 pl-4 pt-1 pb-1 hidden" id="item" onclick="selectItem(this)">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 id="item-name"></h6>
+                    <small id="amount"></small>
+                </div>
+                <div class="d-flex justify-content-between align-items-end">
+                    <div>
+                        <p class="hidden" id="purchased"></p>
+                        <p class="hidden" id="expires"></p>
+                    </div>
+                    <div>
+                        <button type="button" class="btn delete-item-btn hidden float-right" id="delete-item-btn" onclick="deleteItem(this); event.stopPropagation()"></button>
+                        <button type="button" class="btn edit-item-btn hidden float-right" id="edit-item-btn" onclick="editItem(this); event.stopPropagation()"></button>
+                    </div>
+                </div>
+                
+            </li>
+        </div>
+        <div class="modal fade" tabindex="-1" role="dialogue" id="addItemModal">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Add Item</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group row">
+                                <label for="new-item-name" class="col-form-label pl-2">Item name:</label>
+                                <div class="col">
+                                    <input type="text" class="form-control" required id="new-item-name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="new-item-amount" class="col-form-label pl-2">Amount:</label>
+                                <div class="col input-group">
+                                    <input type="text" class="col-9 form-control" id="new-item-amount">
+                                    <input type="text" class="col-3 form-control" id="new-item-unit" placeholder="units">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="new-item-purchsed" class="col-form-label pl-2">Date purchased:</label>
+                                <div class="col">
+                                    <input type="date" class="form-control" id="new-item-purchased">
+                                </div>
+                                
+                            </div>
+                            <div class="form-group row">
+                                <label for="new-item-expires" class="col-form-label pl-2">Expiration date:</label>
+                                <div class="col">
+                                    <input type="date" class="form-control" id="new-item-expires">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="new-item-category" class="col-form-label pl-2">Category:</label>
+                                <div class="col">
+                                    <select class="selectpicker" data-live-search="true" data-width="100%" id="new-item-category" title="---">
+                                        <option>Fruits</option>
+                                        <option>Vegetables</option>
+                                        <option>Grains</option>
+                                        <option>Protein</option>
+                                        <option>Dairy</option>
+                                        <option>Condiments</option>
+                                        <option>Spices</option>
+                                        <option>Sweeteners</option>
+                                        <option>Supplements</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn" id="submit-add" onclick="addItem()">Submit</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>

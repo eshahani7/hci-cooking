@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700,900');
+
 #search-bar {
     background-image: url("../img/search.png");
     background-size: contain;
@@ -51,10 +53,142 @@
     height: 25px;
 }
 
+#delete-item-btn {
+    background-image: url("../img/delete-icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    padding-right: 0;
+}
+
+#edit-item-btn {
+    background-image: url("../img/edit-icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+}
+
+#list-container {
+    /* -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2; */
+    /* display: inline-block; */
+    padding: 25px;
+}
+
+#new-item-category {
+    overflow-y: scoll;
+}
+
+#submit-add {
+    background-color: #F2994A;
+    /* background-color: #2EC4B6; */
+    color: white;
+}
+
 .btn:focus {
-    box-shadow: none;
+    box-shadow: none !important;
 }
 
 .hidden {
     display: none;
+}
+
+
+.list-group-item:hover {
+    background-color: #E0E0E0;
+}
+
+.two-cols {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 50px;
+    -moz-column-gap: 50px;
+    column-gap: 50px;
+    -webkit-column-width: 100%;
+    -moz-column-width: 100%;
+    column-width: 100%;
+    width: 100%;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+}
+
+.list-group {
+    -webkit-column-break-inside: avoid; /* Chrome, Safari */
+    page-break-inside: avoid;           /* Theoretically FF 20+ */
+    break-inside: avoid;         /* IE 11 */
+}
+
+.list-group-item {
+    -webkit-column-break-inside: avoid; /* Chrome, Safari */
+    page-break-inside: avoid;           /* Theoretically FF 20+ */
+    break-inside: avoid;         /* IE 11 */
+}
+
+.two-cols>div {
+    -webkit-column-break-inside: avoid; /* Chrome, Safari */
+    page-break-inside: avoid;           /* Theoretically FF 20+ */
+    break-inside: avoid;         /* IE 11 */
+}
+
+.blur-filter {
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
+}
+
+.modal-header {
+    background-color: #F2994A;
+    color: white;
+    font-family: "Open Sans";
+    font-style: normal; 
+    font-weight: normal;
+    padding: 10px;
+}
+
+.btn-dropdown {
+    background-color: #F2994A;
+    color: white;
+    border-color: lightgrey;
+}
+
+.list-group>h3 {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    /* letter-spacing: 4px; */
+    border-bottom: 2px solid black;
+    margin-bottom: 0;
+}
+
+h6 {
+    font-family: "Open Sans";
+    font-style: normal;
+    color: rgba(0, 0, 0, 0.56);
+}
+
+small {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-size: 12px;
+    color: #999999
+}
+
+p {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-size: 14px;
+    color: #999999;
+    margin: 1px;
+}
+
+label {
+    font-family: "Open Sans";
+    font-style: normal;
+    color: rgba(0, 0, 0, 0.56);
 }

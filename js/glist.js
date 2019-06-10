@@ -34,13 +34,34 @@ $('.addNewContext').click(function() {
 // key = item, value = heading
 function onCheckChange(elem) {
   var key = elem.parentNode.parentNode.querySelector(".item-label").innerText;
-  var value = elem.parentNode.parentNode.parentNode.parentNode.id;
+  // var value = elem.parentNode.parentNode.parentNode.parentNode.id;
+  var value = getHeading(elem);
+  console.log("heading: " + value);
 
   if(elem.checked) {
+    addToPantry(key, value);
     removeFromList(key, value);
   } else {
     addToList(key, value);
   }
+}
+
+function getHeading(elem) {
+  var e = elem;
+  console.log("id: " + e.id);
+  while (e.classList == null || (e.classList != null && !e.classList.contains("heading")))
+    e = e.parentNode;
+  return e.id;
+}
+
+function addToPantry(itemName, category) {
+  newItem = {
+    "name": itemName,
+    "category": category
+  }
+  var update = {};
+  update[`pantry.${itemName}`] = newItem;
+  db.collection("users").doc("eshahani").update(update);
 }
 
 function addToList(key, value) {
