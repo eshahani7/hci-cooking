@@ -32,8 +32,8 @@ function populateMealPlan() {
     db.collection("users").doc("eshahani").update({
       "mealPlan.breakfast" : bfastData
     })
-    generateGroceryList(bfastData);
     loadMealPlan();
+    generateGroceryList(bfastData);
     // grocery List
   });
 
