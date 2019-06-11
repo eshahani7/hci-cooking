@@ -166,6 +166,14 @@
     margin-bottom: 0;
 }
 
+body {
+    background-image: url("../img/glist-bg.jpg");
+    background-size: cover;
+    background-repeat:no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
 h6 {
     font-family: "Open Sans";
     font-style: normal;
