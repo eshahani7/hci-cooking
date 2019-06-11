@@ -134,6 +134,10 @@ a:hover {
   height: 490px;
 }
 
+.card-img-top {
+  max-height: 460px;
+}
+
 #refresh {
   background: #E71D36;
   position: absolute;
