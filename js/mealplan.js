@@ -90,6 +90,7 @@ function generateCards(list) {
   for(var i = 0; i < list.length; i++) {
     var docPath = list[i].src.path;
     var pathArr = docPath.split("/");
+    var recipeQueryName;
     console.log(docPath);
     db.collection(pathArr[0]).doc(pathArr[1]).get().then(function(recipe) {
       var card = document.getElementById("recipe-card");
@@ -98,9 +99,12 @@ function generateCards(list) {
       cardClone.classList.toggle("hidden");
 
       // TODO: change links to recipes
+      // console.log(recipeQueryName);
       cardClone.querySelector(".card-text").innerText = recipe.data().name;
       cardClone.querySelector(".card-img-top").src = recipe.data().imgPath;
-      cardClone.querySelector("a").href = `/recipe.html?name=${recipe.data().name}`;
+
+      var recipeQueryName = "/recipe.html?name="+encodeURIComponent(recipe.id);
+      cardClone.querySelector("a").href = recipeQueryName;
       document.getElementById("card-row").appendChild(cardClone);
     });
   }
@@ -114,7 +118,8 @@ function replaceCard(card, docPath, meal) {
     var oldName = card.querySelector(".card-text").innerText;
     card.querySelector(".card-text").innerText = recipe.data().name;
     card.querySelector(".card-img-top").src = recipe.data().imgPath;
-
+    var recipeQueryName = "/recipe.html?name="+encodeURIComponent(recipe.id);
+    card.querySelector("a").href = recipeQueryName;
     var name = "mealPlan.breakfast";
 
     if(meal == "breakfast") {

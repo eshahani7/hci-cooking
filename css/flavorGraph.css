@@ -40,6 +40,7 @@ html, body {
 
 #main{
   position: relative;
+  height: 100%;
 }
 
 .graph-content{
@@ -51,6 +52,10 @@ html, body {
   border-radius: 10px;
   background-color: #f1f1f1;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+svg>.node{
+  border-radius: 50%;
 }
 
 .filters{
@@ -80,5 +85,22 @@ html, body {
 }
 
 .filterSelections{
+  padding: 2%;
+  letter-spacing: 2px;
+}
 
+.form-check{
+  padding-left: 0rem;
+}
+.form-check-input{
+  margin-left: 5%;
+}
+
+.form-check-label{
+  /*padding: 2%;*/
+  font-size: 20px;
+  padding-left: 5%;
+  margin-left: 10%;
+  margin-bottom: 10%;
+  letter-spacing: 2px;
 }

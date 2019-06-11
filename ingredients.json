@@ -7,27 +7,42 @@
    "children": [
     {
       "name": "paprika",
-      "img":  "./img/ingredients/paprika.jpg",
+      "img":  "./img/ingredients/paprika.png",
       "size": 40000
     },
     {
       "name": "cumin",
-      "img":  "./img/ingredients/cumin.jpg",
+      "img":  "./img/ingredients/cumin.png",
       "size": 40000
     },
     {
       "name": "coriander",
-      "img":  "./img/ingredients/coriander.jpg",
+      "img":  "./img/ingredients/coriander.png",
       "size": 40000
     },
     {
       "name": "nutmeg",
-      "img":  "./img/ingredients/nutmeg.jpg",
+      "img":  "./img/ingredients/nutmeg.png",
       "size": 40000
     },
     {
       "name": "lemonpepper",
-      "img":  "./img/ingredients/lemonpepper.jpg",
+      "img":  "./img/ingredients/lemonpepper.png",
+      "size": 40000
+    },
+    {
+      "name": "redchillipowder",
+      "img":  "./img/ingredients/redchillipowder.png",
+      "size": 40000
+    },
+    {
+     "name": "redchili",
+     "img":  "./img/ingredients/redchili.png",
+     "size": 40000
+    },
+    {
+      "name": "blackpepper",
+      "img":  "./img/ingredients/blackpepper.png",
       "size": 40000
     }
   ]
@@ -37,18 +52,28 @@
    "children": [
     {
       "name": "basil",
-      "img":  "./img/ingredients/basil.jpg",
+      "img":  "./img/ingredients/basil.png",
       "size": 40000
     },
     {
       "name": "oregano",
-      "img":  "./img/ingredients/oregano.jpg",
+      "img":  "./img/ingredients/oregano.png",
       "size": 40000
     },
     {
       "name": "rosemary",
-      "img":  "./img/ingredients/rosemary.jpg",
+      "img":  "./img/ingredients/rosemary.png",
       "size": 40000
+    },
+    {
+      "name": "cilantro",
+      "img":  "./img/ingredients/cilantro.png",
+      "size": 40000
+    },
+    {
+     "name": "thyme",
+     "img":  "./img/ingredients/thyme.png",
+     "size": 40000
     }
   ]
   },
@@ -57,12 +82,17 @@
     "children": [
     {
       "name": "garlic",
-      "img":  "./img/ingredients/garlic.jpg",
+      "img":  "./img/ingredients/garlic.png",
       "size": 40000
     },
     {
       "name": "ginger",
-      "img":  "./img/ingredients/ginger.jpg",
+      "img":  "./img/ingredients/ginger.png",
+      "size": 40000
+    },
+    {
+      "name": "onion",
+      "img":  "./img/ingredients/onion.png",
       "size": 40000
     }
   ]
@@ -72,20 +102,100 @@
     "children": [
     {
       "name": "olive",
-      "img":  "./img/ingredients/olives.jpg",
+      "img":  "./img/ingredients/olives.png",
       "size": 40000
     },
     {
       "name": "tomato",
-      "img":  "./img/ingredients/tomato.jpg",
+      "img":  "./img/ingredients/tomatoes.png",
       "size": 40000
     },
     {
       "name": "bellpeppers",
-      "img":  "./img/ingredients/bellpeppers.jpg",
+      "img":  "./img/ingredients/bellpepper.png",
+      "size": 40000
+    },
+    {
+      "name": "arugula",
+      "img":  "./img/ingredients/arugula.png",
+      "size": 40000
+    },
+    {
+      "name": "artichoke",
+      "img":  "./img/ingredients/artichoke.png",
+      "size": 40000
+    },
+    {
+      "name": "avocado",
+      "img":  "./img/ingredients/avocado.png",
+      "size": 40000
+    },
+    {
+      "name": "beans",
+      "img":  "./img/ingredients/beans.png",
+      "size": 40000
+    },
+    {
+      "name": "celery",
+      "img":  "./img/ingredients/celery.png",
+      "size": 40000
+    },
+    {
+      "name": "cucumber",
+      "img":  "./img/ingredients/cucumber.png",
       "size": 40000
     }
-   ]
+  ]
+  },
+  {
+    "name": "Fruits",
+    "children": [
+    {
+     "name": "banana",
+     "img":  "./img/ingredients/banana.png",
+     "size": 40000
+    },
+    {
+     "name": "blueberry",
+     "img":  "./img/ingredients/blueberry.png",
+     "size": 40000
+    },
+    {
+     "name": "lemon",
+     "img":  "./img/ingredients/lemon.png",
+     "size": 40000
+   },
+   {
+    "name": "lime",
+    "img":  "./img/ingredients/lime.png",
+    "size": 40000
+  },
+  {
+   "name": "raspberry",
+   "img":  "./img/ingredients/raspberry.png",
+   "size": 40000
+  },
+   {
+    "name": "strawberry",
+    "img":  "./img/ingredients/strawberry.png",
+    "size": 40000
+   }
+  ]
+  },
+  {
+    "name": "Grains",
+    "children": [
+      {
+        "name": "bread",
+        "img": "./img/ingredients/bread.png",
+        "size": 4000
+      },
+      {
+       "name": "quinoa",
+       "img":  "./img/ingredients/quinoa.png",
+       "size": 40000
+      }
+    ]
   }
  ]
 }

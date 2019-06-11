@@ -59,8 +59,31 @@
           <div class="filtersHeader">
             Filter By
           </div>
-          <div class="filterSelections">
-
+          <div class="filterSelections" onchange="start_update()">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="filterRadios1" value="mexican">
+              <label class="form-check-label" for="filterRadios1">
+                Mexican
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="filterRadios2" value="asian">
+              <label class="form-check-label" for="filterRadios2">
+                Asian
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="filterRadios3" value="italian">
+              <label class="form-check-label" for="filterRadios3">
+                Italian
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="filterRadios4" value="indian">
+              <label class="form-check-label" for="filterRadios3">
+                Indian
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -81,8 +104,8 @@
   var tcBlack = "#130C0E";
 
 // rest of vars
-var w = $("#vis").parent().width(),
-    h = $("#vis").parent().height()+200,
+var w = $("#vis").parent().width() + 20,
+    h = $("#vis").parent().height()+500,
     maxNodeSize = 50,
     x_browser = 20,
     y_browser = 25,
@@ -93,26 +116,39 @@ var force = d3.layout.force();
 
 vis = d3.select("#vis").append("svg").attr("width", w).attr("height", h);
 
-d3.json("ingredients.json", function(error, json) {
-  if (error) throw error;
+function start_update(){
+  var radios = document.getElementsByName('exampleRadios');
+  var category;
+  var json_name = "ingredients.json";
+  for (var i = 0, length = radios.length; i < length; i++)
+  {
+   if (radios[i].checked)
+   {
+     category = radios[i].value;
+     json_name = category + ".json";
+   }
+  }
+  
+  d3.json(json_name, function(error, json) {
+    if (error) throw error;
 
-  root = json;
-  root.fixed = true;
-  root.x = w / 2;
-  root.y = h / 4;
+    root = json;
+    root.fixed = true;
+    root.x = w / 2;
+    root.y = h / 4;
 
 
-        // Build the path
-  var defs = vis.insert("svg:defs")
-      .data(["end"]);
+          // Build the path
+    var defs = vis.insert("svg:defs")
+        .data(["end"]);
 
 
-  defs.enter().append("svg:path")
-      .attr("d", "M0,-5L10,0L0,5");
+    defs.enter().append("svg:path")
+        .attr("d", "M0,-5L10,0L0,5");
 
-     update();
-});
-
+       update();
+  });
+}
 
 /**
  *
@@ -124,7 +160,7 @@ function update() {
   // Restart the force layout.
   force.nodes(nodes)
         .links(links)
-        .gravity(0.05)
+        .gravity(0.07)
     .charge(-1500)
     .linkDistance(100)
     .friction(0.5)
@@ -161,13 +197,13 @@ function update() {
 
   // Append a circle
   nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
+      .attr("r", function(d) { if(d.name == "Flavors"){return Math.sqrt(d.size) / 10 + 4 || 8.5;} else{return Math.sqrt(d.size) / 10 || 4.5; }})
       .style("fill", "#4f4e4e");
 
 
   // Append images
   var images = nodeEnter.append("svg:image")
-        .attr("xlink:href",  function(d) { return d.img;})
+        .attr("xlink:href",  function(d) { if(d.name != "Flavors"){return d.img;}})
         .attr("x", function(d) { return -25;})
         .attr("y", function(d) { return -25;})
         .attr("height", 50)
@@ -242,6 +278,8 @@ function tick() {
     node.attr("transform", nodeTransform);
   }
 }
+
+start_update();
 
 
 /**

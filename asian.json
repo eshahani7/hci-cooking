@@ -1,0 +1,151 @@
+{
+ "name": "Flavors",
+ "img": "./img/ingredients/flavors.png",
+ "children": [
+  {
+   "name": "Spices",
+   "children": [
+    {
+      "name": "paprika",
+      "img":  "./img/ingredients/paprika.png",
+      "size": 40000
+    },
+    {
+      "name": "cumin",
+      "img":  "./img/ingredients/cumin.png",
+      "size": 40000
+    },
+    {
+      "name": "coriander",
+      "img":  "./img/ingredients/coriander.png",
+      "size": 40000
+    },
+    {
+      "name": "nutmeg",
+      "img":  "./img/ingredients/nutmeg.png",
+      "size": 40000
+    },
+    {
+      "name": "redchillipowder",
+      "img":  "./img/ingredients/redchillipowder.png",
+      "size": 40000
+    },
+    {
+     "name": "redchili",
+     "img":  "./img/ingredients/redchili.png",
+     "size": 40000
+    },
+    {
+      "name": "blackpepper",
+      "img":  "./img/ingredients/blackpepper.png",
+      "size": 40000
+    }
+  ]
+  },
+  {
+   "name": "Herbs",
+   "children": [
+    {
+      "name": "basil",
+      "img":  "./img/ingredients/basil.png",
+      "size": 40000
+    },
+    {
+      "name": "cilantro",
+      "img":  "./img/ingredients/cilantro.png",
+      "size": 40000
+    }
+  ]
+  },
+  {
+    "name": "Aromatics",
+    "children": [
+    {
+      "name": "garlic",
+      "img":  "./img/ingredients/garlic.png",
+      "size": 40000
+    },
+    {
+      "name": "ginger",
+      "img":  "./img/ingredients/ginger.png",
+      "size": 40000
+    },
+    {
+      "name": "onion",
+      "img":  "./img/ingredients/onion.png",
+      "size": 40000
+    }
+  ]
+  },
+  {
+    "name": "Vegetables",
+    "children": [
+    {
+      "name": "tomato",
+      "img":  "./img/ingredients/tomatoes.png",
+      "size": 40000
+    },
+    {
+      "name": "bellpeppers",
+      "img":  "./img/ingredients/bellpepper.png",
+      "size": 40000
+    },
+    {
+      "name": "beans",
+      "img":  "./img/ingredients/beans.png",
+      "size": 40000
+    },
+    {
+      "name": "celery",
+      "img":  "./img/ingredients/celery.png",
+      "size": 40000
+    },
+    {
+      "name": "cucumber",
+      "img":  "./img/ingredients/cucumber.png",
+      "size": 40000
+    }
+  ]
+  },
+  {
+    "name": "Fruits",
+    "children": [
+    {
+     "name": "banana",
+     "img":  "./img/ingredients/banana.png",
+     "size": 40000
+    },
+    {
+     "name": "lemon",
+     "img":  "./img/ingredients/lemon.png",
+     "size": 40000
+   },
+   {
+    "name": "lime",
+    "img":  "./img/ingredients/lime.png",
+    "size": 40000
+  },
+   {
+    "name": "strawberry",
+    "img":  "./img/ingredients/strawberry.png",
+    "size": 40000
+   }
+  ]
+  },
+  {
+    "name": "Grains",
+    "children": [
+      {
+        "name": "bread",
+        "img": "./img/ingredients/bread.png",
+        "size": 4000
+      },
+      {
+       "name": "quinoa",
+       "img":  "./img/ingredients/quinoa.png",
+       "size": 40000
+      }
+    ]
+  }
+ ]
+}
