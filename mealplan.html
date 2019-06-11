@@ -23,7 +23,9 @@
           <div id="title"></div>
       </div>
       <div class="col">
-        <svg id="home" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+        <a href="home.html">
+          <svg id="home" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+        </a>
       </div>
     </div>
     <div class="meal-tabs ml-5 mb-2 hidden" id="tabs">
@@ -77,7 +79,9 @@
           </div>
           <div class="row">
             <div class="col-sm mb-5" align="center">
-              <button type="button" class="btn" style="width: 18rem;" onclick="">Grocery List >></button>
+              <a href="./grocerylist.html">
+                <button type="button" class="btn" style="width: 18rem;" onclick="updateGroceryList">Grocery List >></button>
+              </a>
             </div>
           </div>
         </div>
@@ -86,7 +90,7 @@
 
     <!-- recipe card element -->
     <div class="col-sm hidden mb-3 mt-3" id="recipe-card" align="center">
-      <a href="#" class="card meal-card" style="width: 20rem;">
+      <div href="#" class="card meal-card" style="width: 20rem;">
         <img class="card-img-top" src="img/cookbook.jpg">
         <div class="card-body">
           <div class="icon-control">
@@ -101,9 +105,9 @@
               </svg>
             </div>
           </div>
-          <p class="card-text">Browse Recipes</p>
+          <a class="card-text">Browse Recipes</a>
         </div>
-      </a>
+      </div>
     </div>
 
     <!-- SCRIPTS -->

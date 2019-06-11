@@ -1,4 +1,5 @@
 var db = firebase.firestore();
+var result = {};
 
 function checkMealGen() {
   var user = db.collection("users").where("email", "==", "shahani.ekta@gmail.com");
@@ -64,9 +65,9 @@ function populateMealPlan() {
     generateGroceryList(dinnerData);
   });
 
-  // db.collection("users").doc("eshahani").update({
-  //   mealGenerated: true
-  // });
+  db.collection("users").doc("eshahani").update({
+    mealGenerated: true
+  });
 }
 
 function loadMealPlan() {
@@ -99,6 +100,7 @@ function generateCards(list) {
       // TODO: change links to recipes
       cardClone.querySelector(".card-text").innerText = recipe.data().name;
       cardClone.querySelector(".card-img-top").src = recipe.data().imgPath;
+      cardClone.querySelector("a").href = `/recipe.html?name=${recipe.data().name}`;
       document.getElementById("card-row").appendChild(cardClone);
     });
   }
@@ -203,7 +205,8 @@ $(".ct").on("click", function(){
   } else if(this.innerText == "DINNER") {
     db.collection("users").doc("eshahani").get().then(function (entry) {
       var lunchList = entry.data().mealPlan.dinner;
-      generateCards(dinnerList);
+      console.log("dinner: ", lunchList);
+      generateCards(lunchList);
     });
   }
    return false;
@@ -211,7 +214,6 @@ $(".ct").on("click", function(){
 
 // TODO: finish this ugh
 function generateGroceryList(list) {
-  var result = {};
   list.forEach(function(listItem) {
     var docPath = listItem.src.path;
     var pathArr = docPath.split("/");
@@ -220,18 +222,24 @@ function generateGroceryList(list) {
       var keys = Object.keys(recipe.data().ingredients);
       var values = Object.values(recipe.data().ingredients);
       values.forEach(function(val, i) {
+        console.log("in for each");
         var ingPath = val.path.split("/");
         db.collection(ingPath[0]).doc(ingPath[1]).get().then(function(ing) {
           values[i] = ing.data().type;
           keys.forEach((key, i) => result[key] = values[i]);
-          db.collection("users").doc("eshahani").update({
-            "groceryList" : result
-          })
         });
       })
     });
+    setTimeout(function() {
+    }, 2000);
   })
+  setTimeout(function(){
+    db.collection("users").doc("eshahani").update({
+      "groceryList" : result
+    })
+  }, 5000);
 }
+
 
 // source: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array) {
