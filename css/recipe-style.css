@@ -57,7 +57,7 @@ a:hover {
 
 #list-container {
   font-family: 'Open Sans', sans-serif;
-  background: white;
+  /* background: white; */
   border-radius: 10px;
   margin-left: 175px;
   margin-right: 175px;
