@@ -1,0 +1,183 @@
+html, body {
+  background-color: #F5F6F4;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.top{
+  /*align-items: center;*/
+  align-content: center:
+  width: 100%;
+  padding-left: 2%;
+  padding-right: 2%;
+
+  /*height: 100%;*/
+}
+.icons{
+  padding: 2%;
+  width: 10%;
+}
+.top-img{
+  position: absolute;
+  background: #f1f1f1 no-repeat fixed center;
+  border-radius: 10px;
+  /*background-image: url("/img/avocado-toast.jpg");*/
+  background-size: cover;
+  filter: blur(5px);
+  filter: brightness(50%);
+  -webkit-filter: blur(5px);
+  -webkit-filter: brightness(80%);
+  height: 100%;
+  width: 100%;
+  /*z-index: 2;*/
+}
+.header{
+  position:relative;
+  border-radius: 10px;
+  font-size: 5em;
+  width: 80%;
+  background-color: #f1f1f1;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  height: 25%;
+  align-content: center;
+  /*z-index: 1;*/
+}
+.title{
+  position: relative;
+  padding-top: 10%;
+  color: white;
+  /*z-index: 3;*/
+}
+
+#main{
+  width: 100%;
+  /*padding-left: 1%;
+  padding-right: 1%;*/
+  margin: 0px;
+}
+
+.section-header{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.section{
+  border-radius: 10px;
+  padding: 2%;
+  background: #FFFCF8;
+  width: 39%;
+  align-items: center;
+  align-content: center;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+}
+
+.ingredients{
+  margin-left: 10%;
+  margin-right: 1%;
+}
+
+.ingredient-list{
+  font-family: 'Open Sans', sans-serif;
+  padding: 2%;
+}
+.ingredient{
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  border: 2px solid #D4D4D4;
+  border-radius: 5px;
+  padding: 2%;
+  background: #F5F6F4;
+  margin: 2%;
+}
+.ingredient:hover{
+  border: 2px solid #2EC4B6;
+  background: rgba(46,196,182, 0.25);
+  font-weight: 600;
+}
+
+.directions{
+  margin-left: 1%;
+  margin-right: 10%;
+}
+.direction{
+  margin: 2%;
+  font-size: 16px;
+}
+
+.container-fluid {
+  padding-top: 40px;
+}
+
+/*.popUp{
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}*/
+
+.popUpContent{
+  visibility: hidden;
+  width: 160px;
+  background-color: white;
+  border: 2px solid #EBEBEB;
+  color: black;
+  font-family: "Amatic SC", sans-serif;
+  font-size: 24px;
+  text-align: center;
+  /*text-decoration: underline;*/
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+.popUpContent>ul{
+  text-align: left;
+}
+.popUpContent>ul>li{
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.ingredient .popUpContent::after{
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #EBEBEB transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}

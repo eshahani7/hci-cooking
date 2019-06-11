@@ -1,0 +1,91 @@
+{
+ "name": "Flavors",
+ "img": "./img/ingredients/flavors.png",
+ "children": [
+  {
+   "name": "Spices",
+   "children": [
+    {
+      "name": "paprika",
+      "img":  "./img/ingredients/paprika.jpg",
+      "size": 40000
+    },
+    {
+      "name": "cumin",
+      "img":  "./img/ingredients/cumin.jpg",
+      "size": 40000
+    },
+    {
+      "name": "coriander",
+      "img":  "./img/ingredients/coriander.jpg",
+      "size": 40000
+    },
+    {
+      "name": "nutmeg",
+      "img":  "./img/ingredients/nutmeg.jpg",
+      "size": 40000
+    },
+    {
+      "name": "lemonpepper",
+      "img":  "./img/ingredients/lemonpepper.jpg",
+      "size": 40000
+    }
+  ]
+  },
+  {
+   "name": "Herbs",
+   "children": [
+    {
+      "name": "basil",
+      "img":  "./img/ingredients/basil.jpg",
+      "size": 40000
+    },
+    {
+      "name": "oregano",
+      "img":  "./img/ingredients/oregano.jpg",
+      "size": 40000
+    },
+    {
+      "name": "rosemary",
+      "img":  "./img/ingredients/rosemary.jpg",
+      "size": 40000
+    }
+  ]
+  },
+  {
+    "name": "Aromatics",
+    "children": [
+    {
+      "name": "garlic",
+      "img":  "./img/ingredients/garlic.jpg",
+      "size": 40000
+    },
+    {
+      "name": "ginger",
+      "img":  "./img/ingredients/ginger.jpg",
+      "size": 40000
+    }
+  ]
+  },
+  {
+    "name": "Vegetables",
+    "children": [
+    {
+      "name": "olive",
+      "img":  "./img/ingredients/olives.jpg",
+      "size": 40000
+    },
+    {
+      "name": "tomato",
+      "img":  "./img/ingredients/tomato.jpg",
+      "size": 40000
+    },
+    {
+      "name": "bellpeppers",
+      "img":  "./img/ingredients/bellpeppers.jpg",
+      "size": 40000
+    }
+   ]
+  }
+ ]
+}
