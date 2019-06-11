@@ -1,27 +1,50 @@
 var db = firebase.firestore();
 var checkNum = 0
-var b = d.name,
-url = '/recipe.html?name=' + encodeURIComponent(b);
 
 function checkRecipes(){
   db.collection("recipes").get().then(function(querySnapshot) {
     var recipes = shuffle(querySnapshot.docs);
-    var recipeData = [];
-    for(var i = 0; i < recipes.length; i++) {
-      recipeData[i] = recipes[i].data();
-    }
-    // console.log(recipeData)
-    displayRecipes(recipeData)
-  })
+    displayRecipes(recipes);
+  });
 
   loadFilters()
 }
 
-function displayRecipes(list) {
-  for(var i = 0; i < list.length - (list.length % 2); i+=2) {
-    currRecipe = list[i]
-    currRecipe2 = list[i+1]
-    console.log(currRecipe)
+function reloadRecipes() {
+  db.collection("recipes").get().then(function(querySnapshot) {
+    var recipes = findLunchRecipes(querySnapshot.docs);
+    document.getElementById("myFrame").reload();
+    // window.onclick.reloadRecipes();/
+    // removeRecipes();
+    displayRecipes(recipes);
+  });
+
+  
+}
+
+function removeRecipes(){
+  $( "#recommended" ).empty();
+
+}
+
+function findLunchRecipes(list) {
+  finalRecipeList = []
+  for(var i = 0; i < recipes.length - (recipes.length % 2); i+=2) {
+    currRecipe = list[i].data();
+    mealType = currRecipe.mealType;
+    for(i = 0; i < mealType.length; i++) {
+      if(mealType[i] == "Lunch") {
+        finalRecipeList.push(mealType[i]);
+      }
+    }
+  }
+}
+
+function displayRecipes(recipes) {
+  for(var i = 0; i < recipes.length; i++) { // - (recipes.length % 2); i+=2) {
+    currRecipe = recipes[i].data();
+    currRecipe2 = recipes[i+1].data();
+    console.log(currRecipe);
 
     // db.collection(pathArr[0]).doc(pathArr[1]).get().then(function(recipe) {
     var card = document.getElementById("recipe-card");
@@ -30,18 +53,26 @@ function displayRecipes(list) {
     cardClone.classList.toggle("hidden");
 
     // TODO: change links to recipes
+    var b = recipes[i].id, // d = recipe name
+    url = '/recipe.html?name=' + encodeURIComponent(b);
+
     cardClone.querySelector(".card-text").innerText = currRecipe.name;
     cardClone.querySelector(".card-img-top").src = currRecipe.imgPath;
+    cardClone.querySelector(".meal-card").href = url;
     document.getElementById("recommended").appendChild(cardClone);
 
-    var cardClone2 = card.cloneNode(true);
-    cardClone2.removeAttribute("id");
-    cardClone2.classList.toggle("hidden");
-
-    // TODO: change links to recipes
-    cardClone2.querySelector(".card-text").innerText = currRecipe2.name;
-    cardClone2.querySelector(".card-img-top").src = currRecipe2.imgPath;
-    document.getElementById("recommended").appendChild(cardClone2);
+    // var cardClone2 = card.cloneNode(true);
+    // cardClone2.removeAttribute("id");
+    // cardClone2.classList.toggle("hidden");
+    //
+    // var b1 = recipes[i].id, // d = recipe name
+    // url2 = '/recipe.html?name=' + encodeURIComponent(b1);
+    //
+    // // TODO: change links to recipes
+    // cardClone2.querySelector(".card-text").innerText = currRecipe2.name;
+    // cardClone2.querySelector(".card-img-top").src = currRecipe2.imgPath;
+    // cardClone2.querySelector(".meal-card").href = url2;
+    // document.getElementById("recommended").appendChild(cardClone2);
   }
 }
 

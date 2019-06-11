@@ -6,12 +6,8 @@ url = '/recipe.html?name=' + encodeURIComponent(b);
 function checkRecipes(){
   db.collection("recipes").get().then(function(querySnapshot) {
     var recipes = shuffle(querySnapshot.docs).slice(0,7);
-    var recipeData = [];
-    for(var i = 0; i < recipes.length; i++) {
-      recipeData[i] = recipes[i].data();
-    }
     // console.log(recipeData)
-    displayRecipes(recipeData)
+    displayRecipes(recipes)
   })
 
   loadDietaryRestrictions()
@@ -19,16 +15,20 @@ function checkRecipes(){
 
 function displayRecipes(list) {
   for(var i = 0; i < list.length; i++) {
-    currRecipe = list[i]
+    currRecipe = list[i].data();
     // db.collection(pathArr[0]).doc(pathArr[1]).get().then(function(recipe) {
     var card = document.getElementById("recipe-card");
     var cardClone = card.cloneNode(true);
     cardClone.removeAttribute("id");
     cardClone.classList.toggle("hidden");
 
+    var b = list[i].id, // d = recipe name
+    url = '/recipe.html?name=' + encodeURIComponent(b);
+
     // TODO: change links to recipes
     cardClone.querySelector(".card-text").innerText = currRecipe.name;
     cardClone.querySelector(".card-img-top").src = currRecipe.imgPath;
+    cardClone.querySelector(".meal-card").href = url;
     document.getElementById("recommended").appendChild(cardClone);
   }
 }
@@ -53,7 +53,7 @@ function loadDietaryRestrictions() {
       elmClone.removeAttribute("id");
       elmClone.classList.toggle("hidden");
       elmClone.querySelector(".labelshit").innerText = allergies[i];
-      document.getElementById("flavorprofile3").appendChild(elmClone);
+      document.getElementById("flavorprofile2").appendChild(elmClone);
     }
   })
 

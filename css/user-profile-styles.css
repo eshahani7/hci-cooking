@@ -55,25 +55,25 @@ a:hover {
 
 #list-container {
   font-family: 'Open Sans', sans-serif;
-  background: white;
+  background: #f1f1f1;
   border-radius: 10px;
   margin-left: 175px;
   margin-right: 175px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background-color: #a2a3a5;
+  /* background-color: #a2a3a5; */
 }
 
 .list-group-item {
   border: none;
   padding-top: 0px;
-  background-color: #a2a3a5;
+  /* background-color: #a2a3a5; */
 }
 
 .card-img-top {
     max-width: 150px;
     max-height: 80%;
     min-height: 80%;
-    /* object-fit: cover; */
+    object-fit: cover;
 }
 
 .round {
@@ -127,9 +127,10 @@ a:hover {
 }
 
 .flavorprofpic {
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 150px;
+  max-height: 150px;
   border-radius: 50%;
+
   padding: 20px;
 }
 
@@ -144,12 +145,11 @@ a:hover {
 
 #flavorprofile1 {
   justify-content: center;
-  max-width: 280px;
-  background-color: #a2a3a5;
+  max-width: 350px;
 }
 
-#restrictionsContainer {
-  background-color: #a2a3a5;
+#secondRow, #secondRowPic {
+  padding-left: 60px;
 }
 
 .add {
@@ -157,6 +157,6 @@ a:hover {
   width: 18px;
 }
 
-.labelshit, #restriction {
-  background-color: #a2a3a5;
+#restriction {
+  /* background-color: #BDBDBD; */
 }

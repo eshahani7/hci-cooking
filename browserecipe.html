@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/recipe-style.css" />
     <link rel="stylesheet" href="css/nav-styles.css" />
   </head>
-  <body onload="checkRecipes()">
+  <body onload="reloadRecipes()">
 
     <!-- NAV AND HEADER -->
     <div class="row">
@@ -53,7 +53,7 @@
               <p class="filterheading">Meal Type</p>
               <div id="typeOfMeal"> </div>
 
-              <button type="button" class="btn btn-outline-primary waves-effect" href="window.location.href='/browserecipe';">Save</button>
+              <button type="button" class="btn btn-outline-primary waves-effect" onclick="window.location.reload()">Save</button>
             </div>
 
           </div>

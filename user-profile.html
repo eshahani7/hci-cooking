@@ -24,7 +24,7 @@
         USER PROFILE
       </div>
       <div class="col">
-        <a href="#"><img src="img/pantry.png" id="pantry" /></a>
+        <a href="./pantry.html"><img src="img/pantry.png" id="pantry" /></a>
       </div>
     </div>
 
@@ -52,15 +52,15 @@
 
                 <div id="flavorprofile1" class="container">
                   <div class="row">
-                    <img class="flavorprofpic" src="img/ingredients/chicken.jpg">
+                    <img class="flavorprofpic" src="img/chicken.jpg">
                     <p class="flavorIngredient">Chicken</p>
                   </div>
                   <div class="row">
-                    <p class="flavorIngredient">Ginger</p>
-                    <img class="flavorprofpic" src="img/ingredients/ginger.jpg">
+                    <p id="secondRow" class="flavorIngredient">Ginger</p>
+                    <img id="secondRowPic" class="flavorprofpic" href="./" src="img/ingredients/ginger.png">
                   </div>
                   <div class="row">
-                    <img class="flavorprofpic" src="img/ingredients/bellpeppers.jpg">
+                    <img class="flavorprofpic" src="img/ingredients/bellpepper.png">
                     <p class="flavorIngredient">Bell Peppers</p>
                   </div>
                 </div>
@@ -69,18 +69,28 @@
             </div>
           </div>
 
-          <div class="col-sm-5" align="center">
+          <div class="col-sm-5">
             <div id="filters" class="container" id="list-container">
               <div class="body">
                 <h2 align="center" style="text-decoration: underline">Your Dietary Restrictions</h2>
                 <div id="restrictionsContainer" class="container">
-                  <div id="flavorprofile2" class="container">
-                    <!--  FILL THIS UP dynamically -->
-                  </div>
-                  <h3>Allergies</h3>
-                  <div id="flavorprofile3" class="container">
-                    <!--  FILL THIS UP dynamically -->
-                  </div>
+                  <ul class="list-group">
+                    <!-- <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li> -->
+
+                    <!-- <div id="flavorprofile2" class="container"> -->
+                      <!--  FILL THIS UP dynamically -->
+                      <li class="list-group-item pb-1" id="restriction">
+                          <p class="labelshit">Peanut</p>
+                      </li>
+
+                      <li class="list-group-item pb-1" id="restriction">
+                          <p class="labelshit">Milk</p>
+                      </li>
+
+                    <!-- </div> -->
+                  </ul>
+
                 </div>
               </div>
             </div>
