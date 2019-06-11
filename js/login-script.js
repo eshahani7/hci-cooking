@@ -11,5 +11,4 @@ function resetMealGen() {
   db.collection("users").doc("eshahani").update({
     mealGenerated: false
   });
-  window.location = './home.html';
 }
