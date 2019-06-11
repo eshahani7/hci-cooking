@@ -57,7 +57,7 @@ a:hover {
 
 #list-container {
   font-family: 'Open Sans', sans-serif;
-  /* background: white; */
+  /* background: gray; */
   border-radius: 10px;
   margin-left: 175px;
   margin-right: 175px;
@@ -67,6 +67,7 @@ a:hover {
 .list-group-item {
   border: none;
   padding-top: 0px;
+  background-color: #F1F1F1;
 }
 
 .round {
@@ -122,8 +123,8 @@ a:hover {
 }
 
 #filters {
-  background-color: #F5F6F4;
-  /* background-color: gray; */
+  /* background-color: #F5F6F4; */
+  background-color: #F1F1F1;
 }
 
 .card-img-top {
