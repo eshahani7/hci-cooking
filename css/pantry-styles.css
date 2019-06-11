@@ -161,7 +161,7 @@
 .list-group>h3 {
     font-family: "Montserrat", sans-serif;
     font-style: normal;
-    /* letter-spacing: 4px; */
+    letter-spacing: 2px;
     border-bottom: 2px solid black;
     margin-bottom: 0;
 }
