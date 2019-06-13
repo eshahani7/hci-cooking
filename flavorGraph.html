@@ -216,12 +216,9 @@ function update() {
               var b = d.name,
               url = '/ingredientPage.html?name=' + encodeURIComponent(b);
 
-              if(d.name != "Flavors"){
+              if(d.name != "Flavors" && d.name != "Spices" && d.name != "Herbs" && d.name != "Aromatics" && d.name != "Fruits" && d.name != "Grains" && d.name != "Vegetables"){
                 window.location = url;
               }
-              // d3.select("h1").html(d.hero);
-              // d3.select("h2").html(d.name);
-              // d3.select("h3").html ("Take me to " + "<a href='" + d.link + "' >"  + d.hero + " web page ⇢"+ "</a>" );
            })
 
           .on( 'mouseenter', function() {

@@ -63,7 +63,8 @@ function loadIngredients(){
       ingredient.appendChild(ingredientText);
 
       var ul = document.createElement("ul");
-      // console.log(values[id].path);
+      console.log(num);
+      console.log(values[num]);
       parseArr = values[num].path.split("/");
       db.collection(parseArr[0]).doc(parseArr[1]).get().then(function(doc) {
         var options = doc.data().options;
