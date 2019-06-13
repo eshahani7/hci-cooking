@@ -1,3 +1,6 @@
+### To run
+Run using lite-server for proper display of navbar and images.
+
 ### Nav Instructions
 1. Include stylesheet under css/nav-styles.css.
 2. Include script under js/nav.js AND jquery minified CDN (see home.html)
